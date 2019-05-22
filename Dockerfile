@@ -1,5 +1,5 @@
 # This file is a template, and might need editing before it works on your project.
-FROM openjdk:8-alpine
+FROM repository.dimas-maryanto.com:8086/openjdk:8-alpine
 
 ENV FFMPEG_VERSION=4.1.3
 
