@@ -1,0 +1,16 @@
+variables:
+  DOCKER_REGISTRY_HOSTED: "repository.dimas-maryanto.com:8087"
+  DOCKER_REGISTRY_PUBLIC: "repository.dimas-maryanto.com:8086"
+cache:
+  paths:
+    - .m2/repository
+
+building-image:
+  stage: build
+  before_script:
+    - 'docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD $DOCKER_REGISTRY_HOSTED'
+    - 'docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD $DOCKER_REGISTRY_PUBLIC'
+  script:
+    - 'docker build '
+  only:
+    - /-release$/
